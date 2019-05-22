@@ -6,15 +6,15 @@ Modificar el script `almacen-funciones.py` para que imprima la lista de producto
 
 ### SUGERENCIAS
 
-Usar la función imprimir_productos() como base para crear la función imprimir_productos_html(), esta función tiene que hacer uso de instrucciones print() para ir armando le código HTML final.
+Usar la función `imprimir_productos()` como base para crear la función `imprimir_productos_html()`, esta función tiene que hacer uso de instrucciones `print()` para ir armando le código HTML final.
 
-Por ejemplo para imprimir la línea con la etiqueta table sería:
+Por ejemplo para imprimir la línea con la etiqueta `<table>` sería:
 
     print("<table>")
 
 ### Resultado
 
-Se espera contar con un script llamado almacen-html.py que al ser ejecutado
+Se espera contar con un script llamado `almacen-html.py` que al ser ejecutado
 muestre el resultado siguiente:
 
 ```
