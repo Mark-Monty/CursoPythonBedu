@@ -16,7 +16,7 @@ Modificar el script `lista-productos-autos.py` para que:
 Se muestra a continuación el diagrama de clases donde se muestra el nombre, los atributos,
 los métodos y la relación de herencia de una clase con otra.
 
-![Clase-03-diagrama-clases.png]
+<img src="./Diagrama-clases.png" width="50%">
 
 ### Resultado
 
