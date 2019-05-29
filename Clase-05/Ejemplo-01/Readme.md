@@ -1,3 +1,4 @@
+##### EJEMPLO-01
 ## OBTENIENDO EL MODELO PARA UNA BASE DE DATOS
 
 ### OBJETIVO
@@ -9,7 +10,7 @@ Dados los requerimientos de un proyecto obtener un diagrama inicial del modelo d
    __Resultado__
 
    __Proyecto__: Biblioteca
-  
+
    __Descipción__: En una biblioteca requiere de un sistema informático que pueda administrar el préstamo de libros a usuarios, cada libro tiene un título, editorial, número de páginas y un autores asociados.
 
    Para que un usuario pueda solicitar un préstamo, tiene primero que estar registrarse con los datos de nombre, apellidos, edad, género y dirección.
