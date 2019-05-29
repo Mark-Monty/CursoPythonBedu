@@ -47,7 +47,7 @@ Conocer las instrucciones para realizar un CRUD de datos a una tabla en MariaDB
    ***
 
 
- 2. __OPERACIÓN CREATE__ Se realiza normalmente con la instrucción __INSERT INTO__ de SQL a continuación se muestra como agregar la siguiente lista de libros a la tabla __Libro__.
+2. __OPERACIÓN CREATE__ Se realiza normalmente con la instrucción __INSERT INTO__ de SQL a continuación se muestra como agregar la siguiente lista de libros a la tabla __Libro__.
 
    | Título | Editorial | Núm. de págs. | Autores |
    | ------ | --------- | ------------- | ------- |
