@@ -7,7 +7,7 @@ Conocer el procedimiento en un servidor MySQL para inicializar la base de datos 
 #### REQUISITOS
 1. Contar con Docker instalado
 2. Haber actualizado el contenido de la carpeta `CursoPythonBedu`
-3. Abrir una termina o consola de comandos y cambiarse a la carpeta de trabajo `CursoPythonBedu/Clase-05/Ejemplo-02` y observar que exista el archivo `biblioteca.sql`
+3. Abrir una terminal o consola de comandos y cambiarse a la carpeta de trabajo `CursoPythonBedu/Clase-05/Ejemplo-02` y observar que exista el archivo `biblioteca.sql`
 
    ```sh
    $ cd Clase-05/Ejemplo-02
