@@ -15,7 +15,7 @@ Dados los requerimientos del proyecto __BeduTravels__ obtener un diagrama inicia
 
    El usuario deberá poder ver una lista de los lugares más populares, así como poder ordenar o filtrar los destinos por costo.
 
-   El usuario deberá poder ver la información del viaje para poder y contar con la opción de poder elegir el viaje, así como ajustar algunas otras opciones del mismo.
+   El usuario deberá poder ver la información del viaje y contar con la opción de poder elegir el viaje, así como ajustar algunas otras opciones del mismo.
    ***
 
 2. Identificar los sustantivos en la descripción ya que son los mejores candidatos para convertirse en una tabla.
@@ -45,8 +45,7 @@ Dados los requerimientos del proyecto __BeduTravels__ obtener un diagrama inicia
 
    __Resultado__
 
-   Modelo de base de datos inicial
+   Modelo de base de datos final
 
    ???
    ***
-   

@@ -53,7 +53,7 @@ Dados los requerimientos de un proyecto obtener un diagrama inicial del modelo d
 
    __Resultado__
 
-   Modelo de base de datos inicial
+   Modelo de base de datos final
 
    ![Modelo de tablas](modelo-biblioteca.jpg)
 
