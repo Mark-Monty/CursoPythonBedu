@@ -29,7 +29,7 @@ CREATE TABLE `Libro` (
   `numPag` int(11) DEFAULT NULL,
   `autores` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `Libro` (
 
 LOCK TABLES `Libro` WRITE;
 /*!40000 ALTER TABLE `Libro` DISABLE KEYS */;
+INSERT INTO `Libro` VALUES (1,'Yo, Robot','Gnome Press',374,1),(2,'El fin de la eternidad','Gnome Press',191,1),(3,'El arte de la guerra','Obelisco',112,2);
 /*!40000 ALTER TABLE `Libro` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-29 20:21:10
+-- Dump completed on 2019-05-29 21:54:01
