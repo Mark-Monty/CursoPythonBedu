@@ -1,0 +1,22 @@
+[
+    {
+        "nombre": "Tamales",
+        "cantidad": "15",
+        "precio": "15.0"
+    },
+    {
+        "nombre": "Mesa chica",
+        "cantidad": "3",
+        "precio": "100.0"
+    },
+    {
+        "nombre": "Mesa mediana",
+        "cantidad": "2",
+        "precio": "150.0"
+    },
+    {
+        "nombre": "Mesa grande",
+        "cantidad": "1",
+        "precio": "300.0"
+    }
+]
