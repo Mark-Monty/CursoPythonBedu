@@ -5,7 +5,13 @@
 Conocer la instrucción para crear una tabla en MariaDB, así como definir el tipo de dato para cada uno de los atributos.
 
 #### REQUISITOS
-1. Contar con Docker instalado
+1. Contar con la base de datos Biblioteca inicializada y con los datos de conexión:
+
+   __Host:__ localhost \
+   __User:__ Biblioteca \
+   __Password:__ Biblioteca \
+   __Base de datos:__ Biblioteca
+
 2. Haber actualizado el contenido de la carpeta `CursoPythonBedu`
 3. Abrir una terminal o consola de comandos y cambiarse a la carpeta de trabajo `CursoPythonBedu/Clase-05/Ejemplo-03`
 

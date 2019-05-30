@@ -5,8 +5,18 @@
 Conocer las instrucciones para realizar un CRUD de datos a una tabla en MariaDB
 
 #### REQUISITOS
-1. Haber actualizado el contenido de la carpeta `CursoPythonBedu`
-2. Abrir una terminal o consola de comandos y cambiarse a la carpeta de trabajo `CursoPythonBedu/Clase-05/Ejemplo-04`
+1. Contar con la base de datos Biblioteca inicializada y con los datos de conexión:
+
+   __Host:__ localhost \
+   __User:__ Biblioteca \
+   __Password:__ Biblioteca \
+   __Base de datos:__ Biblioteca
+
+1. Contar con la tabla __Libro__ creada en la base de datos:
+
+  ![Tabla Libro](assets/tabla-libro.jpg)
+
+1. Abrir una terminal o consola de comandos y cambiarse a la carpeta de trabajo `Clase-05/Ejemplo-04`
 
    ```sh
    $ cd Clase-05/Ejemplo-04
@@ -18,11 +28,7 @@ Conocer las instrucciones para realizar un CRUD de datos a una tabla en MariaDB
    ```
    ***
 
-3. Contar con la definición de la tabla Libro:
-
-   ![Tabla Libro](assets/tabla-libro.jpg)
-
-4. Conocer el concepto de CRUD de datos que se descripbe a continuación:
+1. Conocer el concepto de CRUD de datos que se descripbe a continuación:
 
    - __C__reate Operación que permite crear o insertar nuevos registros a una tabla.
    - __R__read  Operación que permite la lectura o consulta de registros o datos en una tabla.

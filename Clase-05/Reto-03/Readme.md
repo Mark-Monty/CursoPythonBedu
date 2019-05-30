@@ -5,7 +5,13 @@
 Usar la instrucción para crear una tabla en MariaDB, así como definir el tipo de dato para cada uno de los atributos.
 
 #### REQUISITOS
-1. Contar con Docker instalado
+1. Contar con la base de datos BeduTravels inicializada y con los datos de conexión:
+
+   __Host:__ localhost \
+   __User:__ BeduTravels \
+   __Password:__ BeduTravels \
+   __Base de datos:__ BeduTravels
+
 2. Haber actualizado el contenido de la carpeta `CursoPythonBedu`
 3. Abrir una terminal o consola de comandos y cambiarse a la carpeta de trabajo `CursoPythonBedu/Clase-05/Reto-03`
 

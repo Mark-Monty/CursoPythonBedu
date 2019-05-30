@@ -5,8 +5,18 @@
 Hacer uso de las instrucciones para realizar un CRUD de datos a una tabla en MariaDB
 
 #### REQUISITOS
-1. Haber actualizado el contenido de la carpeta `CursoPythonBedu`
-2. Abrir una terminal o consola de comandos y cambiarse a la carpeta de trabajo `CursoPythonBedu/Clase-05/Reto-04`
+1. Contar con la base de datos BeduTravels inicializada y con los datos de conexión:
+
+   __Host:__ localhost \
+   __User:__ BeduTravels \
+   __Password:__ BeduTravels \
+   __Base de datos:__ BeduTravels
+
+1. Contar con la tabla __Usuario__ creada en la base de datos:
+
+   ![Tabla Usuario](assets/tabla-usuario.jpg)
+
+1. Abrir una terminal o consola de comandos y cambiarse a la carpeta de trabajo `Clase-05/Reto-04`
 
    ```sh
    $ cd Clase-05/Reto-04
@@ -24,9 +34,6 @@ Hacer uso de las instrucciones para realizar un CRUD de datos a una tabla en Mar
    ```
    ***
 
-3. Contar con la definición de la tabla Usuario:
-
-   ![Tabla Usuario](assets/tabla-usuario.jpg)
 
 ### DESARROLLO
 1. Se realiza las operaciones necesarias para agregar la siguiente lista de personas a la tabla __Usuario__.
