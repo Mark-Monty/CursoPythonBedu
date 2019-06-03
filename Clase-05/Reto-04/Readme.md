@@ -5,8 +5,18 @@
 Hacer uso de las instrucciones para realizar un CRUD de datos a una tabla en MariaDB
 
 #### REQUISITOS
-1. Haber actualizado el contenido de la carpeta `CursoPythonBedu`
-2. Abrir una terminal o consola de comandos y cambiarse a la carpeta de trabajo `CursoPythonBedu/Clase-05/Reto-04`
+1. Contar con la base de datos BeduTravels inicializada y con los datos de conexión:
+
+   __Host:__ localhost \
+   __User:__ BeduTravels \
+   __Password:__ BeduTravels \
+   __Base de datos:__ BeduTravels
+
+1. Contar con la tabla __Usuario__ creada en la base de datos:
+
+   ![Tabla Usuario](assets/tabla-usuario.jpg)
+
+1. Abrir una terminal o consola de comandos y cambiarse a la carpeta de trabajo `Clase-05/Reto-04`
 
    ```sh
    $ cd Clase-05/Reto-04
@@ -24,9 +34,6 @@ Hacer uso de las instrucciones para realizar un CRUD de datos a una tabla en Mar
    ```
    ***
 
-3. Contar con la definición de la tabla Usuario:
-
-   ![Tabla Usuario](assets/tabla-usuario.jpg)
 
 ### DESARROLLO
 1. Se realiza las operaciones necesarias para agregar la siguiente lista de personas a la tabla __Usuario__.
@@ -41,9 +48,9 @@ Hacer uso de las instrucciones para realizar un CRUD de datos a una tabla en Mar
    __Resultado__
 
    ```sql
-   MariaDB [Biblioteca]> ???
+   MariaDB [BeduTravels]> ???
 
-   MariaDB [Biblioteca]> SELECT * FROM Usuario;
+   MariaDB [BeduTravels]> SELECT * FROM Usuario;
    +----+--------+-----------+------+--------+
    | id | nombre | apellidos | edad | genero |
    +----+--------+-----------+------+--------+
@@ -54,7 +61,7 @@ Hacer uso de las instrucciones para realizar un CRUD de datos a una tabla en Mar
    +----+--------+-----------+------+--------+
    4 rows in set (0.000 sec)
 
-   MariaDB [Biblioteca]>
+   MariaDB [BeduTravels]>
    ```
    ***
 
@@ -64,7 +71,9 @@ Hacer uso de las instrucciones para realizar un CRUD de datos a una tabla en Mar
    __Resultado__
 
    ```sql
-   MariaDB [Biblioteca]> SELECT * FROM Usuario;
+   MariaDB [BeduTravels]> ???
+
+   MariaDB [BeduTravels]> SELECT * FROM Usuario;
    +----+--------+-----------+------+--------+
    | id | nombre | apellidos | edad | genero |
    +----+--------+-----------+------+--------+
@@ -74,6 +83,6 @@ Hacer uso de las instrucciones para realizar un CRUD de datos a una tabla en Mar
    +----+--------+-----------+------+--------+
    3 rows in set (0.000 sec)
 
-   MariaDB [Biblioteca]>
+   MariaDB [BeduTravels]>
    ```
    ***
