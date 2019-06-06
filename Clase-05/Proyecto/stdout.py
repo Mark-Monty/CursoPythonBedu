@@ -23,6 +23,11 @@ def imprime_registros(registros, titulo=None):
     for reg in registros:
         # Se formatea cada registro en una línea de texto
         reg = zip(reg, anchos)
+        reg = [list(t) for t in reg]
+        for r in reg:  # [(campo1, anch1), (campo2, anch2), (None, 5)]
+            if r[0] == None: # r -> [campo, ancho]
+                r[0] = ""
+
         reg = ["{:{}}".format(*campo) for campo in reg]
         print(" | ".join(reg))
     print("-" * len(titulo))
