@@ -78,3 +78,17 @@ def obtiene_tablas():
     else:
         # Si no hay conexión a la BD regresamos una lista vacía
         return []
+
+def inserta_registro(tabla, registro):
+    """ Inserta registro en tabla en la base de datos """
+    conn = conecta_bd()
+    if conn == None:
+        return False
+
+    cursor = conn.cursor()
+    sql = "INSERT INTO {} VALUES (null,%s,%s,%s,%s)".format(tabla)
+    cursor.execute(sql, registro)
+    conn.commit()
+    conn.close()
+
+    return True
