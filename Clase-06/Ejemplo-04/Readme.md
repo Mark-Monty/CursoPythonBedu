@@ -14,7 +14,7 @@ Conocer la forma recomendada para realizar una consulta de datos a dos o más ta
 
 
 #### DESARROLLO
-1. Mostrar la lista de todos los préstamos registrados incluyendo id y nombre de usuario y fechas.
+1. Mostrar la lista de todos los préstamos realizados incluyendo además el nombre del usuario en lugar del idUsuario.
 
    __Conectándose a la base de datos:__
 
@@ -23,6 +23,19 @@ Conocer la forma recomendada para realizar una consulta de datos a dos o más ta
     [...]
     MariaDB [Biblioteca]>
     ```
+
+    __La lista de todos los préstamos se obtiene de la siguiente forma:__
+
+    ```sql
+    SELECT * FROM Prestamo;
+    +----+-----------+------------+----------+
+    | id | idUsuario | fechaPre   | fechaDev |
+    +----+-----------+------------+----------+
+    |  1 |         1 | 2019-06-05 | NULL     |
+    +----+-----------+------------+----------+
+    1 row in set (0.000 sec)
+    ```
+    Pero esto no proporciona el nombre del usuario, así que para obtener este resultado hay que hacer uso de la relación con la tabla Usuario por medio de la instrucción SQL JOIN.
 
    __Realizando la consulta haciendo uso del mítico JOIN, intento 1:__
 
@@ -42,7 +55,7 @@ Conocer la forma recomendada para realizar una consulta de datos a dos o más ta
 
    __NOTA:__ Este esta es una de las peores consultas que se pueden realizar, ya que si por ejemplo ambas tablas tubieran unos 100 mil registros la cantidad de regristros generado en la consulta sería de 100000 x 100000 = 10 000 000 000 de registros, si las tablas tubieran 1 millón de registros la cantidad de información regresada podría ser de Terabytes o Pentabytes de información.
 
-   __ADVERTENCIA:__ Si alguien te dice que hagas una consulta usando __JOIN__ de dos o más tablas con toda libertad le puedes decir __HAY TABLA__.
+   __ADVERTENCIA:__ __HAY TABLA__ [Ver diapos]
 
    __Realizando la consulta haciendo uso del mítico JOIN, intento 2:__
 
@@ -69,9 +82,9 @@ Conocer la forma recomendada para realizar una consulta de datos a dos o más ta
    1 row in set (0.000 sec)
    ```
    Este es el resultado esperado.
+   ***
 
--
-1. Mostrar la lista de todos los libros prestados incluyendo el título del libro, la fecha de préstamo y el nombre de aquien se ha prestado.
+1. Mostrar la lista de todos los libros prestados incluyendo el título del libro, la fecha de préstamo y el nombre de a quien se ha prestado.
 
    __Realizando la consulta haciendo uso del mítico JOIN, en un intento:__
 
