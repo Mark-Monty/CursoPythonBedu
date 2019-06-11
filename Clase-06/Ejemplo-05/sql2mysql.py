@@ -6,26 +6,27 @@ from modelomysql import ejecuta_sql
 
 def obtiene_sql(archsql):
     """
-    Lee las isntrucciones sql desde el archivo archsql y regresa una
-    cadena con todas las instrucciones a ejecutar.
+    Leer las instrucciones SQL desde el archivo ARCHSQL y regresa
+    un string con todas las instrucciones
     """
     with open(archsql) as da:
-        lineas = da.read()
+        sql = da.read()
 
-    return lineas
+    return sql
+
 
 @click.command()
 @click.argument("archsql", type=click.Path(exists=True))
 def sql2mysql(archsql):
     """
-    Ejecuta las instrucciones del archivo ARCHSQL en el servidor MariaDB
+    Ejecuta las instrucciones SQL en el archivo ARCHSQL en el servidor
+    MariaDB.
     """
     sql = obtiene_sql(archsql)
     if ejecuta_sql(sql):
-        print("\nSe ha ejecutado el archivo {} correctamente\n".format(
-            archsql))
+        print("Los registros se han insertado correctamente!")
     else:
-        print("\nError el ejecutar el archivo ", archsql)
+        print("Error al insertar los registros!")
 
 if __name__ == '__main__':
     sql2mysql()
