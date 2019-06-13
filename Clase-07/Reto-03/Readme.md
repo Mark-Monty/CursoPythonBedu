@@ -49,4 +49,4 @@ Aplicar el flujo de información entre un servidor web y una aplicación en Pyth
 
 #### TIPS
 - Hacer uso del valor de `environ["PATH_INFO"]`
-- Dejar vivos tanto pingüinos como sea posible!
+- Dejar vivos tantos pingüinos como sea posible!
