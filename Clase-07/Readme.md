@@ -17,9 +17,8 @@
    - [Reto 03](Reto-03)
  - Introducción a los micro frameworks creando la micro aplicación "hola mundo" con Bottle.
    - [Ejemplo 04](Ejemplo-04)
-- Conociendo los micro frameworks creando una micro aplicación web con Bottle.
-  - [Ejemplo 05](Ejemplo-05)
-  - [Proyecto](Proyecto)
+ - Conociendo los micro frameworks creando una micro aplicación web con Bottle.
+   - [Proyecto](Proyecto)
 
 ### POSTWORK
  - Aplicar los conceptos de la clase a un Proyecto
