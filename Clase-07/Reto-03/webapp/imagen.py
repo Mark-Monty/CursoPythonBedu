@@ -49,8 +49,8 @@ if __name__ == "__main__":
         print("Esuchando en {}:{}... [Presiona Control+C para terminar!]".format(host, port))
         print("""
 Abre la siguiente url en tu navegador:
-    
-    http://{}:{}/?imagen=python-logo.png
+
+    http://{}:{}/python-logo.png
         """.format(host, port))
 
         # Esuchando peticiones hasta que se mate el proceso
