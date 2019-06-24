@@ -1,5 +1,5 @@
 `Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 09`](../Readme.md) > Ejemplo-01
-## Creando el modelo de datos para la aplicación web.
+## Creando una tabla con el modelo de datos de Django
 
 ### OBJETIVO
 - Conocer y crear el modelo de datos con Django.
