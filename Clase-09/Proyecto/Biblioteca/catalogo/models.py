@@ -35,6 +35,7 @@ class Prestamo(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     fechaPre = models.DateField(auto_now_add=True)
     fechaDev = models.DateField(null=True, blank=True)
+    libros = models.ManyToManyField(Libro)
 
     def __str__(self):
         """ Se define la representación en str para Prestamo """

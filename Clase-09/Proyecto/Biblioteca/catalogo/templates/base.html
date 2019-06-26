@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Biblioteca - Lista de libros prestados</title>
+	<title>Biblioteca - {% block title %}Lista de libros prestados{% endblock %}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Sitio web para proyecto Biblioteca" />
 	<meta name="keywords" content="Biblioteca, Bedu, Libros, Catálogo" />
@@ -58,11 +58,12 @@
 		<div class="gtco-container">
 			<div class="row">
 				<div class="col-sm-4 col-xs-12">
-					<div id="gtco-logo"><a href="index.html">Biblioteca</a></div>
+					<div id="gtco-logo"><a href="/">Biblioteca</a></div>
 				</div>
 				<div class="col-xs-8 text-right menu-1">
 					<ul>
-						<li><a href="index.html">Libros prestados</a></li>
+						<li><a href="/prestamo/nuevo/">Nuevo préstamo</a></li>
+						<li><a href="/">Libros prestados</a></li>
 						<li><a href="perfil.html">rctorr</a></li>
 					</ul>
 				</div>
@@ -80,6 +81,7 @@
 						<div class="tab">
 							<div class="tab-content">
 								<div class="tab-content-inner active" data-content="list">
+									{% block contenido %}
 									<h3>Lista de libros prestados</h3>
 									<table class="table table-responsive table-hover table-striped ">
 										<tr><th>Título</th><th>Fecha préstamo</th><th>Fecha devolución</th><th>Nombre</th></tr>
@@ -92,6 +94,7 @@
 										</tr>
 										{% endfor %}
 									</table>
+									{% endblock %}
 								</div>
 							</div>
 						</div>

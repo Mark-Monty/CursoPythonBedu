@@ -1,5 +1,5 @@
 `Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 09`](../Readme.md) > Ejemplo-02
-## Creando relaciones uno a muchos con el modelo de datos de Django. Django.
+## Creando relaciones uno a muchos con el modelo de datos de Django.
 
 ### OBJETIVO
 - Crear una relación uno a muchos entre dos tablas.

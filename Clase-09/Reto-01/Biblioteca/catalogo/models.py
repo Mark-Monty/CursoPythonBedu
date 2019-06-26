@@ -12,19 +12,3 @@ class Usuario(models.Model):
     ]
     genero = models.CharField(max_length=1, choices=GENERO_OPCIONES)
     direccion = models.CharField(max_length=256, null=True, blank=True)
-
-    def __str__(self):
-        """ Se define la representación en str para Usuario """
-        return "{} {}".format(self.nombre, self.apellidos)
-
-
-class Libro(models.Model):
-    """ Define la tabla Libro """
-    titulo = models.CharField(max_length=128)
-    editorial = models.CharField(max_length=80)
-    numPag = models.SmallIntegerField()
-    autores = models.SmallIntegerField()
-
-    def __str__(self):
-        """ Se define la representación en str para Libro """
-        return self.titulo

@@ -1,123 +1,121 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 08`](../Readme.md) > Proyecto
-## Agregar la página de inicio ya maquetada a la aplicación web BeduTravels
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 09`](../Readme.md) > Proyecto
+## Definiendo y agregando una página con formulario a la aplicación web
 
-### OBJETIVOS
-- Agregar páginas ya maquetadas por medio de las plantillas con Django.
-- Configurar y agregar los archivos estáticos en una aplicación web con Django.
-- Contar con la página de inicio del proyecto BeduTravels disponible con Django.
+### OBJETIVO
+- Crear la ruta y vista para generar el formulario de login
+- Crear la ruta y vista para procesar la información de un formulario vía POST.
 
-#### REQUISITOS
+### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Clase-08/Proyecto/BeduTravels/`
-1. Activar el entorno virtual __BeduTravels__
-1. Página de inicio maquetada del proyecto __BeduTravels__
+1. Usar la carpeta de trabajo `Clase-09/Proyecto`
+1. Diagrama del modelo entidad-relación para el proyect __Biblioteca__
 
-   ![index.html](assets/bedutravels-index-01.png)
+   ![Modelo entidad-relación para Biblioteca](modelo-entidad-relacion.jpg)
 
-#### DESARROLLO
-1. Ejecutar el proyecto __BeduTravels__ con:
 
-   ```console
-   (BeduTravels) Proyecto/BeduTravels $ python manage.py runserver
-   [...]
-   June 19, 2019 - 10:38:22
-   Django version 2.2.2, using settings 'BeduTravels.settings'
-   Starting development server at http://127.0.0.1:8000/
-   Quit the server with CONTROL-C.   
-   ```
-   ***
+### DESARROLLO
+Dada la url `http://localhost/login/` se deberá mostrar las siguiente página para hacer __login__ al sistema:
 
-1. Haciendo uso de las plantillas de Django integrar la página de inicio maquetada que se encuentra en `public_html/index.html`.
+![Biblioteca - Login](assets/login-01.png)
 
-   __Crear las carpetas `BeduTravels/reservas/templates/reservas`:__
+Y posteriormente al proporcionar el usuario __biblioteca__ y clave __biblioteca__ deberá mostrar la página de inicio o un mensaje de error en caso de que no se proporciones los datos de forma correcta.
 
-   ```console
-   (BeduTravels) Proyecto/BeduTravels $ mkdir reservas/templates
-   (BeduTravels) Proyecto/BeduTravels $ mkdir reservas/templates/reservas
-   ```
+1. Crear la ruta para la url `/login/`
 
-   __Copiar el archivo `public_html/index.html` dentro de la carpeta `BeduTravels/reservas/templates/reservas/`:__
-
-   ```console
-   (BeduTravels) Proyecto/BeduTravels $ cp ../public_html/index.html reservas/templates/reservas/
-
-   (BeduTravels) Proyecto/BeduTravels $ tree reservas/templates/
-   reservas/templates/
-   └── reservas
-       └── index.html
-   ```
-
-   __Modificar la función `index()` en el archivo `reservas/views.py` para hacer uso de las plantillas (templates)__
+   __Se modifica el archivo `Biblioteca/catalogo/urls.py` agregando la línea siguiente:__
 
    ```python
-   from django.shortcuts import render
-
-   # Create your views here.
-   def index(request):
-       """ Vista para atender la petición de la url / """
-       return render(request, "reservas/index.html")
+   path("login/", views.login, name="login"),
    ```
-   Por omisión, Django busca los archivos html en la carpeta `proyecto/aplicacion/templates/aplicacion/`
-
-   __El resultado en el navegador debería de ser el siguiente:__
-
-   ![index.html con plantillas](assets/bedutravels-index-02.png)
-
-   Hasta aquí ya podemos ver el html, pero ¿y los estilos y las imágenes?
-
-   Como son archivos estáticos aún no hemos autorizado a que se puedan ver, así que continuemos.
    ***
 
-1. Agregando acceso a los archivos estáticos (ruta y vista)
+1. Crear la vista `views.login`
 
-   __Crear la carpeta `BeduTravels/reservas/static/reservas/`:__
+   __Se modifica el archivo `Biblioteca/catalogo/views.py` agregando las función login():__
 
-   ```console
-   (BeduTravels) Proyecto/BeduTravels $ mkdir reservas/static
-   (BeduTravels) Proyecto/BeduTravels $ mkdir reservas/static/reservas
+   ```python
+   def login(request):
+       """ Atiende las peticiones de GET /login/ """
+
+       msg = ""
+
+       return render(request, "registration/login.html",
+           {
+               "msg":msg,
+           }
+       )
    ```
+   ***
 
-   __Copiar las carpetas de los archivos estáticos (css, fonts, images y js):__
+1. Crear la plantilla `login.html`
 
-   ```console
-   (BeduTravels) Proyecto/BeduTravels $ cp -a ../public_html/css reservas/static/reservas/
-
-   (BeduTravels) Proyecto/BeduTravels $ cp -a ../public_html/fonts reservas/static/reservas/
-
-   (BeduTravels) Proyecto/BeduTravels $ cp -a ../public_html/images reservas/static/reservas/
-
-   (BeduTravels) Proyecto/BeduTravels $ cp -a ../public_html/js reservas/static/reservas/
-
-   Clase-08/Proyecto/BeduTravels $ tree -d 1 reservas/static/reservas/
-   reservas/static/reservas/
-   ├── css
-   ├── fonts
-   │   ├── bootstrap
-   │   ├── icomoon
-   │   └── themify-icons
-   ├── images
-   └── js
-   ```
-
-   __Finalmente hay que modificar la ruta en el archivo `index.html` para que usen el sistema de Django__
-
-   Todas las url relativas o absolutas ahora tienen que ser absolutas e iniciar con `/static/reservas/`, uns ejemplos se muestra a continuación:
+   __Se crea el archivo `Biblioteca/catalogo/templates/catalogo/registration/login.html` con el siguiente contenido:__
 
    ```html
-   <!-- Animate.css -->
-   <link rel="stylesheet" href="/static/reservas/css/animate.css">
-   <!-- Icomoon Icon Fonts-->
-   <link rel="stylesheet" href="/static/reservas/css/icomoon.css">
+   {% extends "base.html" %}
+
+   {% block title %}Entrada al sistema{% endblock %}
+
+   {% block contenido %}
+   <div class="row animate-box">
+     <div class="col-md-8 col-md-offset-2">
+       <h3 class="text-black text-center">Entrada al sistema</h3>
+       <form method="POST">
+           {% csrf_token %}
+           <aside class="form-group">
+               <label for="usuario">Usuario</label>
+               <input type="text" id="usuario" class="form-control" required placeholder="Escribe tu usuario" name="username" />
+           </aside>
+           <aside class="form-group">
+               <label for="clave">Clave</label>
+               <input type="password" id="clave" class="form-control" required placeholder="Escribe tu clave" name="password" />
+           </aside>
+           <hr />
+           <aside class="form-group">
+             <div class="row">
+               <div class="col-md-6 col-md-offset-3">
+                   <input class="btn btn-primary btn-block" type="submit" name="submit" value="Enviar" />
+               </div>
+             </div>
+           </aside>
+           <input type="hidden" name="next" value="{{ next }}" />
+           {% if msg %}
+           <aside class="alert alert-dismissible alert-danger">
+               {{ msg }}
+           </aside>
+           {% endif %}
+       </form>
+     </div>
+   </div>
+   {% endblock %}
    ```
-   Remplazar todas las coincidencias.
 
-   __Actualizar el navegador y entonces se debería de ver la página mostrada al inicio__
+   Finalmente se obtiene el formulario esperado!
+   ***
 
-   Si no funciona:
-   - Recargar la página forzado actualizar el cache del navegador con `Control+Shift+R`.
-   - En la ventana donde se está ejecutando el proyecto, deternlo y volver a iniciarlo.
-   - Usar una ventana de incógnito.
-   - Pedir ayuda a un experto (que no vas a encontrar en clase!)
+1. Ajustar la vista `views.login` para que valide los datos del formulario.
 
-   Si si funciona entonces:
-   - Misión cumplida! Ya eres Django Baby!
+   __Se procesan los datos POST en la vista:__
+
+   ```python
+   # Se definen los datos de un usuario válido
+   usuario_valido = ("biblioteca", "biblioteca")  # (username, password)
+
+   # Si hay datos vía POST se procesan
+   if request.method == "POST":
+       # Se obtienen los datos del formulario
+       usuario_form = (request.POST["username"],
+           request.POST["password"])
+       if usuario_form == usuario_valido:
+           # Tenemos usuario válido, redireccionamos a index
+           return redirect("/")
+       else:
+           # Usuario malo
+           msg = "Datos incorrectos, intente de nuevo!"
+   else:
+       # Si no hay datos POST
+       msg = ""
+   ```
+   Y así se debería de ver cuando el usuario es incorrecto:
+   ![Biblioteca - Login - Error](assets/login-02.png)   
+   ***
