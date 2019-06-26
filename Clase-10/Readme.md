@@ -8,10 +8,6 @@
 
 ### ORGANIZACIÓN DE CLASE
 
- - Crear una vista basada en clases
-   - [Ejemplo 01](Ejemplo-01)
-   - [Reto 01](Reto-01)
-
  - Definiendo y agregando autenticación de entrada usando el modelo User de Django
    - [Ejemplo 02](Ejemplo-02)
  - Definiendo y agregando autenticación de salida
