@@ -28,3 +28,14 @@ class Libro(models.Model):
     def __str__(self):
         """ Se define la representación en str para Libro """
         return self.titulo
+
+
+class Prestamo(models.Model):
+    """ Define la tabla Prestamo """
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    fechaPre = models.DateField(auto_now_add=True)
+    fechaDev = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        """ Se define la representación en str para Prestamo """
+        return str(self.id)
