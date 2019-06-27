@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Usuario, Libro, Prestamo
 
 import datetime
@@ -75,5 +75,32 @@ def nuevo_prestamo(request):
             "fecha":fecha,
             "libros":libros,
             "msg":msg
+        }
+    )
+
+def login(request):
+    """ Atiende las peticiones de GET /login/ """
+
+    # Se definen los datos de un usuario válido
+    usuario_valido = ("biblioteca", "biblioteca")  # (username, password)
+
+    # Si hay datos vía POST se procesan
+    if request.method == "POST":
+        # Se obtienen los datos del formulario
+        usuario_form = (request.POST["username"],
+            request.POST["password"])
+        if usuario_form == usuario_valido:
+            # Tenemos usuario válido, redireccionamos a index
+            return redirect("/")
+        else:
+            # Usuario malo
+            msg = "Datos incorrectos, intente de nuevo!"
+    else:
+        # Si no hay datos POST
+        msg = ""
+
+    return render(request, "registration/login.html",
+        {
+            "msg":msg,
         }
     )
