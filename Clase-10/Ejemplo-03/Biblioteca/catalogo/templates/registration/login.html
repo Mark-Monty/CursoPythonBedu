@@ -24,7 +24,11 @@
             </div>
           </div>
         </aside>
+        {% if next %}
         <input type="hidden" name="next" value="{{ next }}" />
+        {% else %}
+        <input type="hidden" name="next" value="/" />
+        {% endif %}
         {% if msg %}
         <aside class="alert alert-dismissible alert-danger">
             {{ msg }}

@@ -80,39 +80,3 @@ def nuevo_prestamo(request):
             "msg":msg
         }
     )
-
-def login_user(request):
-    """ Atiende las peticiones de GET /login/ """
-
-    # Si hay datos vía POST se procesan
-    if request.method == "POST":
-        # Se obtienen los datos del formulario
-        username = request.POST["username"]
-        password = request.POST["password"]
-        next = request.GET.get("next", "/")
-        acceso = authenticate(username=username, password=password)
-        if acceso is not None:
-            # Se agregan datos al request para mantener activa la sesión
-            login(request, acceso)
-            # Y redireccionamos a next
-            return redirect(next)
-        else:
-            # Usuario malo
-            msg = "Datos incorrectos, intente de nuevo!"
-    else:
-        # Si no hay datos POST
-        msg = ""
-
-    return render(request, "registration/login.html",
-        {
-            "msg":msg,
-        }
-    )
-
-
-def logout_user(request):
-    """ Atiende las peticiones de GET /logout/ """
-    # Se cierra la sesión del usuario actual
-    logout(request)
-
-    return redirect("/")

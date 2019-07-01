@@ -64,7 +64,11 @@
 					<ul>
 						<li><a href="/prestamo/nuevo/">Nuevo préstamo</a></li>
 						<li><a href="/">Libros prestados</a></li>
-						<li><a href="perfil.html">rctorr</a></li>
+						{% if user.username == "" %}
+						<li><a href="/login/">Login</a></li>
+						{% else %}
+						<li><a href="/logout/">{{ user.username }}</a></li>
+						{% endif %}
 					</ul>
 				</div>
 			</div>
