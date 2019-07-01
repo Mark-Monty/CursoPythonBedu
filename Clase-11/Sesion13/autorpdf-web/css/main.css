@@ -1,0 +1,35 @@
+table, th ,td {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+th, td {
+  width: 150px;
+  text-align: center;
+}
+
+table tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+table tr:nth-child(even) {
+  background-color: #fff;
+}
+
+table tr:nth-child(1) {
+  background-color: #bdf;
+}
+
+td input {
+  width: 90%;
+  text-align: right;
+}
+
+p#total {
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  font-family: Arial;
+  display: inline-block;
+}
