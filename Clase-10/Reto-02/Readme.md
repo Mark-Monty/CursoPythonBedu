@@ -1,37 +1,33 @@
 `Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 10`](../Readme.md) > Reto-02
-## Definiendo y agregando autenticación de entrada usando el modelo User de Django
+## Definiendo y agregando autenticación de entrada usando la vista auth_views.login de Django.
 
 ### OBJETIVO
-- Crear autenticación de salida para una página de la aplicación
+- Crear autenticación de salida usando la vista auth_views.logout de Django.
 
 ### REQUISITOS
 1. Actualizar repositorio
 1. Usar la carpeta de trabajo `Clase-10/Reto-02`
 
 ### DESARROLLO
-1. Agrega la ruta para la url `/logout/`
+1. Modificar la ruta `/logout` para hacer uso de la vista
 
-   __Se modifica el archivo `Biblioteca/catalogo/urls.py` con lo siguiente:__
+   __Se modifica la ruta:__
    ```python
-   path("logout/", views.logout_user, name="logout_user"),
+   path("logout/", auth_views.logoutView.as_view(next_page="/"), name="logout"),
    ```
+   De igual forma no se requiere la la vista `logout_user()`.
 
-1. Agrega la vista `views.logout_user` para la ruta `logout/`
+   __Borra la vista `logout_user() del archivos views.py`__
 
-   __Se modifica el archivo `Biblioteca/catalogo/views.py` con lo siguiente:__
-   ```python
-   def logout_user(request):
-       """ Atiende las peticiones de GET /logout/ """
-       # Se cierra la sesión del usuario actual
-       logout(request)
+    Verifica que el proceso de login y logout sigue funcionando
 
-       return redirect("/")
+1. Corrigiendo un bug al usar __Login__ desde el menú
+
+   __Modificar el archivo `Biblioteca/catalogo/template/registration/login.html`:__
+   ```html
+   {% if next %}
+   <input type="hidden" name="next" value="{{ next }}" />
+   {% else %}
+   <input type="hidden" name="next" value="/" />
+   {% endif %}
    ```
-
-   __Se tiene que importar la función `logout()` de la siguiente forma:__
-   ```python
-   from django.contrib.auth import authenticate, login, logout
-   ```
-   Validar que mediante el menú se pueda entrar y salir del sistema.
-
-Eso es todo, ya cuentas con un sistema con entrada y salida de usuarios.

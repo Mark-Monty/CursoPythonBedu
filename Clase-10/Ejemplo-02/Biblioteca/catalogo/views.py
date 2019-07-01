@@ -90,12 +90,11 @@ def login_user(request):
         username = request.POST["username"]
         password = request.POST["password"]
         next = request.GET.get("next", "/")
-
-        # Vemos si los datos están en el modelo User
         acceso = authenticate(username=username, password=password)
         if acceso is not None:
-            # Tenemos usuario válido, redireccionamos a index
+            # Se agregan datos al request para mantener activa la sesión
             login(request, acceso)
+            # Y redireccionamos a next
             return redirect(next)
         else:
             # Usuario malo

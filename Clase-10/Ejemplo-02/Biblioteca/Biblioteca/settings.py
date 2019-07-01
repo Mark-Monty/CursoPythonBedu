@@ -120,5 +120,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# URL Por default para el login
+# Se define la URL para login
 LOGIN_URL = "/login/"
