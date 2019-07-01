@@ -1,3 +1,5 @@
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import Usuario, Libro, Prestamo
 
@@ -23,6 +25,7 @@ def index(request):
 
     return render(request, "catalogo/index.html", {"registros":registros})
 
+@login_required()
 def nuevo_prestamo(request):
     """ Vista para atender la petción de la url /prestamo/nuevo/ """
     # Ahora queremos saber si hay o no petición POST primero
@@ -78,20 +81,21 @@ def nuevo_prestamo(request):
         }
     )
 
-def login(request):
+def login_user(request):
     """ Atiende las peticiones de GET /login/ """
-
-    # Se definen los datos de un usuario válido
-    usuario_valido = ("biblioteca", "biblioteca")  # (username, password)
 
     # Si hay datos vía POST se procesan
     if request.method == "POST":
         # Se obtienen los datos del formulario
-        usuario_form = (request.POST["username"],
-            request.POST["password"])
-        if usuario_form == usuario_valido:
-            # Tenemos usuario válido, redireccionamos a index
-            return redirect("/")
+        username = request.POST["username"]
+        password = request.POST["password"]
+        next = request.GET.get("next", "/")
+        acceso = authenticate(username=username, password=password)
+        if acceso is not None:
+            # Se agregan datos al request para mantener activa la sesión
+            login(request, acceso)
+            # Y redireccionamos a next
+            return redirect(next)
         else:
             # Usuario malo
             msg = "Datos incorrectos, intente de nuevo!"
@@ -104,3 +108,11 @@ def login(request):
             "msg":msg,
         }
     )
+
+
+def logout_user(request):
+    """ Atiende las peticiones de GET /logout/ """
+    # Se cierra la sesión del usuario actual
+    logout(request)
+
+    return redirect("/")
