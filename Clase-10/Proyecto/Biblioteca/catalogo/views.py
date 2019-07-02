@@ -10,20 +10,11 @@ def index(request):
     """ Vista para atender la petción de la url / """
     # Obteniendo los datos mediantes consultas
     prestamos = Prestamo.objects.all()
-    # Generando una lista de registros resultado
-    registros = []
-    for p in prestamos:
-        # Se obtienes los libros por cada préstamo
-        for l in p.libros.all():
-            d = {
-                "titulo":l.titulo,
-                "fechaPre":p.fechaPre,
-                "fechaDev":p.fechaDev,
-                "nombre":p.usuario.nombre
-            }
-            registros.append(d)
+    grupos = request.user.groups.values_list("name", flat=True)
 
-    return render(request, "catalogo/index.html", {"registros":registros})
+    return render(request, "catalogo/index.html",
+        {"prestamos":prestamos, "grupos":grupos}
+    )
 
 @login_required()
 def nuevo_prestamo(request):
@@ -80,3 +71,21 @@ def nuevo_prestamo(request):
             "msg":msg
         }
     )
+
+@login_required()
+def elimina_libros_prestamo(request, idPrestamo, idLibro):
+    """
+    Atiende la petición GET
+       /prestamo/<int:idPrestamo>/libros/elimina/<int:idLibro>/
+    """
+    # Se valida que el usuario pertenesca al grupo eliminar
+    grupos = request.user.groups.values_list("name", flat=True)
+    if "eliminar" in grupos:
+        # Se obtienen los objetos correspondientes a los id's
+        prestamo = Prestamo.objects.get(pk=idPrestamo)
+        libro = Libro.objects.get(pk=idLibro)
+
+        # Se elimina el libro del préstamo
+        prestamo.libros.remove(libro)
+
+    return redirect("/")
