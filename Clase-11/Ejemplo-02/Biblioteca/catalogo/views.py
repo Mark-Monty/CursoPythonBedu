@@ -2,6 +2,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import Usuario, Libro, Prestamo
+from .serializers import UsuarioSerializer, LibroSerializer
+from rest_framework import viewsets
 
 import datetime
 
@@ -89,3 +91,27 @@ def elimina_libros_prestamo(request, idPrestamo, idLibro):
         prestamo.libros.remove(libro)
 
     return redirect("/")
+
+
+# Vistas basadas en clases para Django Rest
+class UsuarioViewSet(viewsets.ModelViewSet):
+   """
+   API que permite realizar operaciones en la tabla Usuario
+   """
+   # Se define el conjunto de datos sobre el que va a operar la vista,
+   # en este caso sobre todos los usuarios disponibles.
+   queryset = Usuario.objects.all().order_by('-id')
+   # Se define el Serializador encargado de transformar la peticiones
+   # en formato JSON a objetos de Django y de Django a JSON.
+   serializer_class = UsuarioSerializer
+
+class LibroViewSet(viewsets.ModelViewSet):
+  """
+  API que permite realizar operaciones en la tabla Libro
+  """
+  # Se define el conjunto de datos sobre el que va a operar la vista,
+  # en este caso sobre todos los Libros disponibles.
+  queryset = Libro.objects.all().order_by('id')
+  # Se define el Serializador encargado de transformar la peticiones
+  # en formato JSON a objetos de Django y de Django a JSON.
+  serializer_class = LibroSerializer

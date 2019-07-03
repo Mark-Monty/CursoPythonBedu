@@ -32,7 +32,7 @@ class Libro(models.Model):
 
 class Prestamo(models.Model):
     """ Define la tabla Prestamo """
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name="prestamos")
     fechaPre = models.DateField(auto_now_add=True)
     fechaDev = models.DateField(null=True, blank=True)
     libros = models.ManyToManyField(Libro)

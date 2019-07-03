@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from .models import Usuario, Libro, Prestamo
-from .serializers import UsuarioSerializer, LibroSerializer
+from .serializers import UsuarioSerializer, LibroSerializer, PrestamoSerializer
 
 from rest_framework import viewsets
 
@@ -117,3 +117,15 @@ class LibroViewSet(viewsets.ModelViewSet):
     # Se define el Serializador encargado de transformar la peticiones
     # en formato JSON a objetos de Django y de Django a JSON.
     serializer_class = LibroSerializer
+
+
+class PrestamoViewSet(viewsets.ModelViewSet):
+    """
+    API que permite realizar operaciones en la tabla Prestamo
+    """
+    # Se define el conjunto de datos sobre el que va a operar la vista,
+    # en este caso sobre todos los Prestamos disponibles.
+    queryset = Prestamo.objects.all().order_by('id')
+    # Se define el Serializador encargado de transformar la peticiones
+    # en formato JSON a objetos de Django y de Django a JSON.
+    serializer_class = PrestamoSerializer
