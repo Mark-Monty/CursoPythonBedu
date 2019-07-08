@@ -1894,3 +1894,7 @@ form label {
 .acciones a:hover {
     color: blue;
 }
+
+a.text-white {
+    color: white;
+}
