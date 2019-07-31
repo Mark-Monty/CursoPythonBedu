@@ -15,6 +15,8 @@
    - [Ejemplo 02](Ejemplo-02)
  - El archivo `settings.py` para desarrollo y producción.
    - [Ejemplo 03](Ejemplo-03)
+ - Archivos estáticos y base de datos en producción
+   - [Ejemplo 04](Ejemplo-04)
 
 ### POSTWORK
  - Aplicar los conceptos de la clase a tú Proyecto

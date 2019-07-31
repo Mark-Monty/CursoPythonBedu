@@ -4,7 +4,7 @@
 ### OBJETIVOS
 - Conocer el procedimiento para subir nuestra aplicación al espacio de hospedaje del proveedor.
 - Crear un entorno virtual para instalar los módulos para nuestra aplicación.
-- Creando una aplicación para configurar el entorno de la palicación
+- Creando una aplicación para configurar el entorno de la aplicación
 
 ### REQUISITOS
 1. Actualizar repositorio
